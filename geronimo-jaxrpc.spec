@@ -3,7 +3,7 @@
 
 Name:             geronimo-jaxrpc
 Version:          2.1
-Release:          2
+Release:          4
 Summary:          Java EE: Java API for XML Remote Procedure Call v1.1
 Group:            Development/Java
 License:          ASL 2.0
