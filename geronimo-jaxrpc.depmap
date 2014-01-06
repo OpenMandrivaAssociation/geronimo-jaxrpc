@@ -1,0 +1,13 @@
+<dependencies>
+    <dependency>
+	    <maven>
+	        <groupId>org.apache.geronimo.specs</groupId>
+	        <artifactId>geronimo-servlet_3.0_spec</artifactId>
+        </maven>
+        <jpp>
+	        <groupId>JPP</groupId>
+	        <artifactId>tomcat-servlet-api</artifactId>
+	        <version>3.0</version>
+	    </jpp>
+    </dependency>
+</dependencies>
