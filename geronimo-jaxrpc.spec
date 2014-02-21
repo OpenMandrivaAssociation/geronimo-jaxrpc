@@ -18,7 +18,11 @@ BuildRequires:    jpackage-utils
 BuildRequires:    maven-local
 BuildRequires:    geronimo-parent-poms
 BuildRequires:    maven-resources-plugin
+%if 0%{?fedora}
 BuildRequires:    saaj_api
+%else
+BuildRequires:    geronimo-saaj
+%endif
 BuildRequires:    geronimo-osgi-locator
 BuildRequires:    tomcat-servlet-3.0-api
 BuildRequires:    maven-surefire-provider-junit
