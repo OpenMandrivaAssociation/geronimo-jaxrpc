@@ -4,13 +4,12 @@
 
 Name:             geronimo-jaxrpc
 Version:          2.1
-Release:          13.0%{?dist}
+Release:          16.1
 Summary:          Java EE: Java API for XML Remote Procedure Call v1.1
 License:          ASL 2.0 and W3C
-
+Group:		  Development/Java
 URL:              http://geronimo.apache.org/
 Source0:          http://repo2.maven.org/maven2/org/apache/geronimo/specs/%{spec_name}/%{version}/%{spec_name}-%{version}-source-release.tar.gz
-Source1:          %{name}.depmap
 BuildArch:        noarch
 
 BuildRequires:    java-devel >= 1:1.6.0
@@ -20,7 +19,7 @@ BuildRequires:    geronimo-parent-poms
 BuildRequires:    maven-resources-plugin
 BuildRequires:    saaj_api
 BuildRequires:    geronimo-osgi-locator
-BuildRequires:    tomcat-servlet-3.0-api
+BuildRequires:    glassfish-servlet-api
 BuildRequires:    maven-surefire-provider-junit
 
 Provides:         jaxrpc_api = %{spec_ver}
@@ -44,16 +43,6 @@ sed -i 's/\r//' LICENSE NOTICE
 
 %mvn_alias : javax.xml:jaxrpc-api
 %mvn_file : %{name} jaxrpc
-
-cat >>.xmvn/config.d/mvn-rpmbuild-config.xml <<EOF
-<configuration>
-  <resolverSettings>
-    <metadataRepositories>
-      <repository>%{SOURCE1}</repository>
-    </metadataRepositories>
-  </resolverSettings>
-</configuration>
-EOF
 
 %build
 %mvn_build
