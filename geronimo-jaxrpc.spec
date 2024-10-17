@@ -8,7 +8,7 @@ Release:          16.3
 Summary:          Java EE: Java API for XML Remote Procedure Call v1.1
 License:          ASL 2.0 and W3C
 Group:		  Development/Java
-URL:              http://geronimo.apache.org/
+URL:              https://geronimo.apache.org/
 Source0:          http://repo2.maven.org/maven2/org/apache/geronimo/specs/%{spec_name}/%{version}/%{spec_name}-%{version}-source-release.tar.gz
 BuildArch:        noarch
 
