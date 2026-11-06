@@ -15,6 +15,7 @@ BuildRequires:	java-current-devel
 BuildRequires:	geronimo-saaj
 BuildRequires:	geronimo-osgi-locator
 BuildRequires:	mvn(javax.servlet:javax.servlet-api)
+BuildRequires:	mvn(net.java:jvnet-parent:pom::)
 BuildSystem:	maven
 BuildOption(install):	--file-name %{name} --alias javax.xml:jaxrpc-api
 
