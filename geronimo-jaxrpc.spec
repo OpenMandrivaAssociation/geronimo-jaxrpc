@@ -27,12 +27,17 @@ JAX-RPC 1.1 client API. Servlet types come from javax.servlet.
 %prep
 %setup -q -c -T
 # The builder rpmuncompress passes this gzip archive to tar, which rejects it.
-python - %{SOURCE0} <<'PY'
+python - %{SOURCE0} %{spec_name}-%{version} <<'PY'
+import shutil
 import sys
 import tarfile
+from pathlib import Path
 tarfile.open(sys.argv[1]).extractall(".")
+inner = Path(sys.argv[2])
+for child in inner.iterdir():
+    shutil.move(str(child), ".")
+inner.rmdir()
 PY
-cd %{spec_name}-%{version}
 iconv -f iso8859-1 -t utf-8 LICENSE > LICENSE.conv && mv -f LICENSE.conv LICENSE
 sed -i 's/\r//' LICENSE NOTICE
 python - <<'PY'
