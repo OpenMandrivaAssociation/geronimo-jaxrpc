@@ -25,7 +25,14 @@ Provides:	jaxrpc_api = 1.1
 JAX-RPC 1.1 client API. Servlet types come from javax.servlet.
 
 %prep
-%setup -q -n %{spec_name}-%{version}
+%setup -q -c -T
+# The builder rpmuncompress passes this gzip archive to tar, which rejects it.
+python - %{SOURCE0} <<'PY'
+import sys
+import tarfile
+tarfile.open(sys.argv[1]).extractall(".")
+PY
+cd %{spec_name}-%{version}
 iconv -f iso8859-1 -t utf-8 LICENSE > LICENSE.conv && mv -f LICENSE.conv LICENSE
 sed -i 's/\r//' LICENSE NOTICE
 python - <<'PY'
